@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014 The CyanogenMod Project
+ * Copyright (c) 2016 The CyanogenMod Project
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,20 +18,16 @@
  *
  */
 
-package org.cyanogenmod.dotcase;
+package com.cyanogenmod.settings.device;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.provider.Settings;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        Settings.Secure.putString(context.getContentResolver(),
-                                  Settings.Secure.IMMERSIVE_MODE_CONFIRMATIONS,
-                                  "org.cyanogenmod.dotcase");
-
-        new CoverObserver(context).init();
+        Intent serviceIntent = new Intent(context, HtcGestureService.class);
+        context.startService(serviceIntent);
     }
 }
