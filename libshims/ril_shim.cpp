@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2016 The CyanogenMod Project
- *               2017 The LineageOS Project
+ * Copyright (C) 2017 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,23 +15,12 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.settings.device;
+extern "C" int
+checkRequestInfo(struct RequestInfo* pRI) {
+  return 0;
+}
 
-import android.os.Bundle;
-import android.preference.PreferenceActivity;
-
-public class TouchscreenGestureSettings extends PreferenceActivity {
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.gesture_panel);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        getListView().setPadding(0, 0, 0, 0);
-    }
+extern "C" int
+vsnprintf() {
+  return 0;
 }
