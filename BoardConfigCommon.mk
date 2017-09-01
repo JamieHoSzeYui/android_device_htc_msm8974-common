@@ -1,5 +1,6 @@
 #
-# Copyright (C) 2015 The CyanogenMod Project
+# Copyright (C) 2015-2016 The CyanogenMod Project
+#               2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -76,6 +77,11 @@ TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 # Charge mode
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
 
+# CMHW
+BOARD_HARDWARE_CLASS += \
+    hardware/cyanogen/cmhw \
+    $(PLATFORM_PATH)/cmhw
+
 # FM Radio
 AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
 BOARD_HAVE_QCOM_FM := true
@@ -97,9 +103,6 @@ TARGET_POWERHAL_VARIANT := qcom
 
 # RIL
 TARGET_RIL_VARIANT := caf
-
-# RPC
-TARGET_NO_RPC := true
 
 # SDClang
 TARGET_USE_SDCLANG := true
@@ -138,6 +141,3 @@ BOARD_USES_MMCUTILS := true
 TARGET_RECOVERY_DEVICE_DIRS += $(PLATFORM_PATH)
 TARGET_RECOVERY_DEVICE_MODULES += chargeled
 TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/etc/fstab.qcom
-
-# Hardware
-BOARD_HARDWARE_CLASS += hardware/cyanogen/cmhw
